@@ -88,6 +88,7 @@ The notebook includes steps to load the Excel dataset, inspect its row and colum
 | Number of destinations | **30** |
 
 ![Figure 01 — Financial Snapshot](assets\Financial_snapshot.png)
+![Figure 01 — Financial Snapshot](assets\Financial_snapshot.png)
 
 **Finding:** The network is profitable in aggregate. However, these totals do not reveal the degree of variation across destinations and haul categories. Route-level analysis is therefore necessary to identify where margins are strongest and which segments reduce overall efficiency. This also illustrates why FP&A reporting should combine **revenue, absolute profit, and profit margin** rather than relying on a single measure.
 
@@ -114,13 +115,13 @@ Based on the PivotChart ranking of **Average of PM**:
 
 ### .3. Load Factor — High Seat Occupancy Does Not Necessarily Mean High Profit
 
-![Average Load Factors by Destination](assets/02_load_factor_by_destination.png)
+![Average Load Factors by Destination](assets/ALF_by_Destination.png)
 
 *Figure 02 — Average Load Factors by Destination. Colors represent Route Category; the horizontal line is the median shown in the chart.*
 
 Load Factor varies across destinations, reflecting differences in demand and seat utilization. Nevertheless, load factor is only one part of the financial equation: even a flight carrying many passengers may generate insufficient Revenue per Passenger to cover Cost per Passenger.
 
-![Load Factors vs PM](assets/03_load_factor_vs_margin.png)
+![Load Factors vs PM](assets/LP_vs_PM.png)
 
 *Figure 03 — Scatter plot of Load Factor versus PM, grouped by haul category with trendlines.*
 
@@ -130,7 +131,7 @@ The scatter plot indicates a positive association between Load Factor and PM in 
 
 ### 4.4. Cost Structure — Which Components Drive Expenses?
 
-![Cost Structure](assets/04_total_cost_structure.png)
+![Cost Structure](assets/Cost_structure.png)
 
 *Figure 04 — Total cost components ranked using an Excel PivotChart.*
 
@@ -145,7 +146,7 @@ The following cost categories feature prominently in the analysis:
 
 **Finding:** Fuel is one of the largest cost items, but Sales & Distribution, Overhead, and Depreciation also account for substantial shares. Cost improvement hypotheses should therefore examine **commercial costs, fixed expenses, and allocated expenses** rather than focusing only on fuel.
 
-![Cost Structure by Routes](assets/05_cost_mix_by_haul.png)
+![Cost Structure by Routes](assets/Cost_structure_by_routes.png)
 
 *Figure 05 — 100% stacked column chart comparing cost composition across Long, Medium, and Short Haul.*
 
@@ -162,23 +163,19 @@ CASK = Total Cost / ASK
 RASK - CASK = Profit / ASK
 ```
 
-![RASK vs CASK](assets/06_rask_cask.png)
+![RASK vs CASK](assets/RASK_vs_CASK.png)
 
 *Figure 06 — Excel scatter plot of RASK versus CASK, preserving the original plotted points and trendline.*
 
 The chart compares revenue generation and costs on the same unit-of-capacity basis. For each route, the difference between RASK and CASK indicates whether revenue per available seat-kilometer covers the corresponding cost.
 
-![ASK Spread by Destination](assets/07_ask_spread.png)
+![ASK Spread by Destination](assets/ASK_Spread_by_Destination.png)
 
 *Figure 07 — ASK Spread by Destination. Place directly after the RASK vs CASK figure.*
 
 **Finding:** A positive spread indicates unit revenue exceeding unit cost, while a negative spread flags a route for further investigation. The purpose for FP&A is not merely to rank these spreads, but to connect them to underlying drivers such as Load Factor, revenue mix, flight hours, and cost allocation.
 
 ### 4.6. Fleet Efficiency — Aircraft Type and Route Length
-
-![Aircraft by Route Category PM Pivot](assets/11_aircraft_by_haul.png)
-
-*Figure 11 — PivotTable heatmap of Average PM by Aircraft Type × Route Category.*
 
 | Aircraft Type | Long Haul | Medium Haul | Short Haul |
 |---|---:|---:|---:|
@@ -191,7 +188,7 @@ The chart compares revenue generation and costs on the same unit-of-capacity bas
 
 **Finding:** Average PM differs markedly across aircraft–haul combinations. Wide-body aircraft operating on Short Haul flights exhibit substantially negative margins in the displayed results, whereas some of those aircraft types show positive margins on Long Haul routes. This raises an important planning question about the alignment of **aircraft capacity, flight distance, and route economics**.
 
-![Long Haul Route KPI Matrix](assets/12_longhaul_route_kpis.png)
+![Long Haul Route KPI Matrix](assets/Long_Haul_KPI.png)
 
 *Figure 12 — Long Haul KPI matrix by destination: RASK, Flight Hours, Load Factor, and PM.*
 
@@ -199,17 +196,17 @@ Even among Long Haul destinations, flight duration, seat occupancy, RASK, and PM
 
 ### 4.7. Seasonality — Monthly and Seasonal Demand and Profitability
 
-![Load Factors by Month](assets/08_monthly_load_factor.png)
+![Load Factors by Month](assets/LF_by_month.png)
 
 *Figure 08 — Average Load Factor by month.*
 
-![Load Factor and Profit Trends by Route Category](assets/09_monthly_trends_by_haul.png)
+![Load Factor and Profit Trends by Route Category](assets/LF_trend_by_routes.png)
 
 *Figure 09 — Load Factor and Average Profit trends by haul category.*
 
 The charts show higher Load Factors at the beginning and end of the year and lower values in the middle of the year, particularly **June–August**. A similar deterioration appears in average profit trends across the route categories.
 
-![RASK by Season and LF/PM by Season](assets/10_season_summary.png)
+![RASK by Season and LF/PM by Season](assets/RASK_LF_PM_by_season.png)
 
 *Figure 10 — RASK by Season and Load Factor/PM by Season.*
 
@@ -219,13 +216,13 @@ Comparing Low, Normal, Shoulder, and Peak seasons, Peak shows higher average RAS
 
 ### 4.8. Break-even Load Factor and Full Flights That Still Lose Money
 
-![Break-even Load Factor by Route Category](assets/13_belf_boxplot.png)
+![Break-even Load Factor by Route Category](assets/BLF.png)
 
 *Figure 13 — Python boxplot showing BELF distributions by Route Category.*
 
 The boxplot shows that Break-even LF distributions differ between Long, Medium, and Short Haul. Short Haul has a higher median than Long Haul in the displayed chart; the dashed reference line represents an average LF of approximately **0.80**. This indicates that route categories have different break-even requirements under the BELF calculation used in the project.
 
-![High LF but Loss Making Flights](assets/14_high_lf_loss.png)
+![High LF but Loss Making Flights](assets/LF_085.png)
 
 *Figure 14 — Flights with `Load_Factor > 0.85` but `PM < 0`, grouped by Season and Route Category.*
 
@@ -233,7 +230,7 @@ Flights with Load Factors above 85% that are still unprofitable are concentrated
 
 ### 4.9. Passenger Service Cost per Pax
 
-![Passenger Service Cost per Pax Heatmap](assets/15_passenger_service_heatmap.png)
+![Passenger Service Cost per Pax Heatmap](assets/PAX.png)
 
 *Figure 15 — Heatmap of passenger service cost per Pax by Aircraft Type and Route Category.*
 
@@ -257,15 +254,11 @@ The notebook selects predictors, applies one-hot encoding to categorical variabl
 | MAE | 0.1591 | **0.1583** |
 | R² | 0.7020 | **0.7111** |
 
-![Random Forest and XGBoost Test Metrics](assets/17_model_metrics.png)
-
-*Figure 17 — Model performance on the test set, as reported in the notebook.*
-
 The two models perform similarly; XGBoost has slightly lower RMSE and MAE and a higher R² in this experiment. These figures describe a test-set modeling exercise, not an operational forecasting system already deployed by an airline.
 
 ### 5.3. Feature Importance
 
-![Feature Importance Comparison](assets/16_feature_importance.png)
+![Feature Importance Comparison](assets/Feature_Importance.png)
 
 *Figure 16 — Top 15 features for Random Forest and XGBoost.*
 
