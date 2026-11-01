@@ -87,9 +87,6 @@ The notebook includes steps to load the Excel dataset, inspect its row and colum
 | Number of flights | **7,974** |
 | Number of destinations | **30** |
 
-![Figure 01 — Financial Snapshot](assets\Financial_snapshot.png)
-![Figure 01 — Financial Snapshot](assets\Financial_snapshot.png)
-
 **Finding:** The network is profitable in aggregate. However, these totals do not reveal the degree of variation across destinations and haul categories. Route-level analysis is therefore necessary to identify where margins are strongest and which segments reduce overall efficiency. This also illustrates why FP&A reporting should combine **revenue, absolute profit, and profit margin** rather than relying on a single measure.
 
 ### 4.2. Route Profitability — Best- and Worst-Performing Destinations
@@ -107,7 +104,7 @@ Based on the PivotChart ranking of **Average of PM**:
 ![Top and Bottom Route Margins](assets/Top15.png)
 ![Top and Bottom Route Margins](assets/Bottom15.png)
 
-*Figure 18 — Top 15 and Bottom 15 routes by Average PM. Place directly after the route ranking table.*
+*Figure 01 — Top 15 and Bottom 15 routes by Average PM. Place directly after the route ranking table.*
 
 **Finding:** FRA, SIN, CDG, BKK, and HKG stand out with relatively high average margins, whereas CAI, AMM, JED, and RUH show substantial negative margins. These results support differentiated route management strategies. For loss-making routes, FP&A should further review Revenue/Pax, Cost/Pax, ticket pricing, and allocated costs before considering schedule frequency or aircraft configuration changes.
 
@@ -121,7 +118,7 @@ Based on the PivotChart ranking of **Average of PM**:
 
 Load Factor varies across destinations, reflecting differences in demand and seat utilization. Nevertheless, load factor is only one part of the financial equation: even a flight carrying many passengers may generate insufficient Revenue per Passenger to cover Cost per Passenger.
 
-![Load Factors vs PM](assets/LP_vs_PM.png)
+![Load Factors vs PM](assets/LF_PM.png)
 
 *Figure 03 — Scatter plot of Load Factor versus PM, grouped by haul category with trendlines.*
 
@@ -190,7 +187,7 @@ The chart compares revenue generation and costs on the same unit-of-capacity bas
 
 ![Long Haul Route KPI Matrix](assets/Long_Haul_KPI.png)
 
-*Figure 12 — Long Haul KPI matrix by destination: RASK, Flight Hours, Load Factor, and PM.*
+*Figure 08 — Long Haul KPI matrix by destination: RASK, Flight Hours, Load Factor, and PM.*
 
 Even among Long Haul destinations, flight duration, seat occupancy, RASK, and PM differ. Haul length is therefore a useful first segmentation layer, but it should not replace a detailed destination-level analysis.
 
@@ -198,17 +195,17 @@ Even among Long Haul destinations, flight duration, seat occupancy, RASK, and PM
 
 ![Load Factors by Month](assets/LF_by_month.png)
 
-*Figure 08 — Average Load Factor by month.*
+*Figure 09 — Average Load Factor by month.*
 
 ![Load Factor and Profit Trends by Route Category](assets/LF_trend_by_routes.png)
 
-*Figure 09 — Load Factor and Average Profit trends by haul category.*
+*Figure 10 — Load Factor and Average Profit trends by haul category.*
 
 The charts show higher Load Factors at the beginning and end of the year and lower values in the middle of the year, particularly **June–August**. A similar deterioration appears in average profit trends across the route categories.
 
 ![RASK by Season and LF/PM by Season](assets/RASK_LF_PM_by_season.png)
 
-*Figure 10 — RASK by Season and Load Factor/PM by Season.*
+*Figure 11 — RASK by Season and Load Factor/PM by Season.*
 
 Comparing Low, Normal, Shoulder, and Peak seasons, Peak shows higher average RASK, Load Factor, and PM than Low. This suggests seasonality relates both to passenger volume and revenue quality, while many flight expenses must still be covered regardless of the season.
 
@@ -218,13 +215,13 @@ Comparing Low, Normal, Shoulder, and Peak seasons, Peak shows higher average RAS
 
 ![Break-even Load Factor by Route Category](assets/BLF.png)
 
-*Figure 13 — Python boxplot showing BELF distributions by Route Category.*
+*Figure 12 — Python boxplot showing BELF distributions by Route Category.*
 
 The boxplot shows that Break-even LF distributions differ between Long, Medium, and Short Haul. Short Haul has a higher median than Long Haul in the displayed chart; the dashed reference line represents an average LF of approximately **0.80**. This indicates that route categories have different break-even requirements under the BELF calculation used in the project.
 
 ![High LF but Loss Making Flights](assets/LF_085.png)
 
-*Figure 14 — Flights with `Load_Factor > 0.85` but `PM < 0`, grouped by Season and Route Category.*
+*Figure 13 — Flights with `Load_Factor > 0.85` but `PM < 0`, grouped by Season and Route Category.*
 
 Flights with Load Factors above 85% that are still unprofitable are concentrated in the Short Haul category, particularly in some seasons shown in the chart. This reinforces the LF vs PM finding: **selling more seats does not automatically generate profit if revenue per seat is insufficient to cover costs**.
 
@@ -232,7 +229,7 @@ Flights with Load Factors above 85% that are still unprofitable are concentrated
 
 ![Passenger Service Cost per Pax Heatmap](assets/PAX.png)
 
-*Figure 15 — Heatmap of passenger service cost per Pax by Aircraft Type and Route Category.*
+*Figure 14 — Heatmap of passenger service cost per Pax by Aircraft Type and Route Category.*
 
 The notebook constructs this metric from Catering Cost, Handling Cost, and Passenger Service Cost and compares average values across Aircraft Type × Route Category combinations. The heatmap supports a closer examination of whether different aircraft and route configurations incur different average service expenses and which groups warrant deeper cost-driver analysis.
 
@@ -260,7 +257,7 @@ The two models perform similarly; XGBoost has slightly lower RMSE and MAE and a 
 
 ![Feature Importance Comparison](assets/Feature_Importance.png)
 
-*Figure 16 — Top 15 features for Random Forest and XGBoost.*
+*Figure 15 — Top 15 features for Random Forest and XGBoost.*
 
 `Route_Category_Short Haul` is among the most prominent features in both plots. Variables including `Flight_Hours`, `Load_Factor`, `Distance`, and `Aircraft_Capacity` also appear. The results suggest that route length, demand, and aircraft capacity characteristics contain useful information for predicting PM in the fitted models.
 
