@@ -59,7 +59,7 @@ The notebook includes steps to load the Excel dataset, inspect its row and colum
 ## 3. Business Questions 
 
 | Analysis area | Key question |
-|---|---|---|
+|---|---|
 | Network Performance | How much revenue, cost, and profit does the network generate? |
 | Route Profitability | Which destinations have the highest and lowest Average PM? | 
 | Capacity | How is Load Factor related to Profit Margin? |
@@ -87,7 +87,7 @@ The notebook includes steps to load the Excel dataset, inspect its row and colum
 | Number of flights | **7,974** |
 | Number of destinations | **30** |
 
-![Figure 01 — Financial Snapshot](assets\
+![Figure 01 — Financial Snapshot](assets\Financial_snapshot.png)
 
 **Finding:** The network is profitable in aggregate. However, these totals do not reveal the degree of variation across destinations and haul categories. Route-level analysis is therefore necessary to identify where margins are strongest and which segments reduce overall efficiency. This also illustrates why FP&A reporting should combine **revenue, absolute profit, and profit margin** rather than relying on a single measure.
 
@@ -103,7 +103,8 @@ Based on the PivotChart ranking of **Average of PM**:
 | BKK | 39.91% | RUH | -41.20% |
 | HKG | 38.67% | LAX | -15.59% |
 
-![Top and Bottom Route Margins](assets/18_route_margin_rankings.png)
+![Top and Bottom Route Margins](assets/Top15.png)
+![Top and Bottom Route Margins](assets/Bottom15.png)
 
 *Figure 18 — Top 15 and Bottom 15 routes by Average PM. Place directly after the route ranking table.*
 
